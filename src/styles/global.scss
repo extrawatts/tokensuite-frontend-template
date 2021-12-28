@@ -1,0 +1,16 @@
+@import 'reset';
+@include mapThemes;
+
+html,
+body {
+  font-family: 'Barlow';
+  background-color: color(primary-color);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.menu-is-open {
+  overflow-y: hidden;
+}

@@ -1,0 +1,2 @@
+*.yml
+src/graphql/generated/*.ts

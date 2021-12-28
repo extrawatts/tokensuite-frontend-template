@@ -5,3 +5,5 @@ README.md
 next.config.js
 /src/api-query/__generated__/AxiosClient.ts
 /public/swagger.json
+*.yml
+src/graphql/generated/*.ts

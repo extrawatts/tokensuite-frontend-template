@@ -1,0 +1,7 @@
+README.md
+.next
+*.d.ts
+.prettierrc
+next.config.js
+/src/api-query/__generated__/AxiosClient.ts
+/public/swagger.json

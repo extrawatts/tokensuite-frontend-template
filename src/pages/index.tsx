@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import Home from 'src/components/ui/organisms/home';
+import Home from 'src/components/templates/home';
 import { usePostsQuery } from 'src/graphql/generated';
 import useGraphqlClientStore from 'src/store/graphql-client';
 const HomePage: NextPage = () => {

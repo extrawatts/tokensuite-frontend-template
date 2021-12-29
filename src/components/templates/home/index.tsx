@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './home.module.scss';
 import cx from 'classnames';
 import { HomeProps } from 'src/types/components/ui/organisms/home';
-import WithSidebar from '../../molecules/with-sidebar';
-import Switcher from '../../molecules/switcher';
-import Box from '../../molecules/box';
-import Hero from '../../molecules/hero';
-import Center from '../../molecules/center';
+import WithSidebar from '../../ui/molecules/with-sidebar';
+import Switcher from '../../ui/molecules/switcher';
+import Box from '../../ui/molecules/box';
+import Hero from '../../ui/molecules/hero';
+import Center from '../../ui/molecules/center';
 /* import Stack from '../../molecules/stack';
 import Center from '../../molecules/center'; */
 

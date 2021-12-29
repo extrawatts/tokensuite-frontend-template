@@ -1,0 +1,59 @@
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    flex-grow: 1;
+  }
+}
+
+.gapSm {
+  gap: 10px;
+}
+.gapMd {
+  gap: 20px;
+}
+.gapLg {
+  gap: 30px;
+}
+
+/*
+* Threshold, when to switch horizontal
+*/
+.deviceXs {
+  & > * {
+    flex-basis: calc(($device-xs - 100%) * 999) !important;
+  }
+}
+.deviceSm {
+  & > * {
+    flex-basis: calc(($device-sm - 100%) * 999) !important;
+  }
+}
+.deviceMd {
+  & > * {
+    flex-basis: calc(($device-md - 100%) * 999) !important;
+  }
+}
+
+/*
+* Limit: maximum number of elements allowed to appear in the horizontal config
+*/
+.one {
+  & > :nth-last-child(n + 2),
+  & > :nth-last-child(n + 2) ~ * {
+    flex-basis: 100%;
+  }
+}
+.two {
+  & > :nth-last-child(n + 3),
+  & > :nth-last-child(n + 3) ~ * {
+    flex-basis: 100%;
+  }
+}
+.three {
+  & > :nth-last-child(n + 4),
+  & > :nth-last-child(n + 4) ~ * {
+    flex-basis: 100%;
+  }
+}

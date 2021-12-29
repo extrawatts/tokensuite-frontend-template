@@ -1,0 +1,25 @@
+.box {
+  background-color: yellow;
+}
+
+.s1 {
+  padding: $s-1;
+}
+.s2 {
+  padding: $s-2;
+}
+.s3 {
+  padding: $s-3;
+}
+
+.thin {
+  border: $border-thin;
+}
+
+.thick {
+  border: $border-thick;
+}
+
+.normal {
+  border: $border-normal;
+}

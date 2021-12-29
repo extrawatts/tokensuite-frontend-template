@@ -5,6 +5,8 @@ import { HomeProps } from 'src/types/components/ui/organisms/home';
 import WithSidebar from '../../molecules/with-sidebar';
 import Switcher from '../../molecules/switcher';
 import Box from '../../molecules/box';
+import Hero from '../../molecules/hero';
+import Center from '../../molecules/center';
 /* import Stack from '../../molecules/stack';
 import Center from '../../molecules/center'; */
 
@@ -21,6 +23,11 @@ const Home: React.FC<HomeProps> = ({ className }) => {
         <Box>sadlkgfhjasdg</Box>
         <Box>sadlkgfhjasdg</Box>
       </Switcher>
+      <Center centerText>
+        <Hero space="spaceMd">
+          <h1>TEst</h1>
+        </Hero>
+      </Center>
     </div>
   );
 };

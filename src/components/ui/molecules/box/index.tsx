@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './box.module.scss';
 import cx from 'classnames';
-import { BoxProps } from 'src/types/components/ui/molecules/box';
+import { BoxProps } from 'types/components/ui/molecules/box';
 
 const Box: React.FC<BoxProps> = ({ className, children, padding, borderSize }) => {
   return (

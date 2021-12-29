@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './home.module.scss';
 import cx from 'classnames';
-import { HomeProps } from 'src/types/components/ui/organisms/home';
+import { HomeProps } from 'types/components/ui/organisms/home';
 import WithSidebar from '../../ui/molecules/with-sidebar';
 import Switcher from '../../ui/molecules/switcher';
 import Box from '../../ui/molecules/box';

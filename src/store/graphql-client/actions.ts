@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { GraphqlClientStore } from 'src/types/store/graphql-client';
+import { GraphqlClientStore } from 'types/store/graphql-client';
 import { GetState, SetState } from 'zustand';
 
 const graphqlClientActions = (
@@ -14,7 +14,7 @@ const graphqlClientActions = (
 
     /*
      * @INFO Please checkout graphql-request documentation to set default headers.
-     * Here is an example
+     *  Here is an example
      * client.setHeaders({
      * authorization: 'Bearer MY_TOKEN',
      * anotherheader: 'header_value'

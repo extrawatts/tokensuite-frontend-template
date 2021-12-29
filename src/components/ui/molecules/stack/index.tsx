@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './stack.module.scss';
 import cx from 'classnames';
-import { StackProps } from 'src/types/components/ui/molecules/stack';
+import { StackProps } from 'types/components/ui/molecules/stack';
 
 const Stack: React.FC<StackProps> = ({ className, children, space, splitAfter }) => {
   return (

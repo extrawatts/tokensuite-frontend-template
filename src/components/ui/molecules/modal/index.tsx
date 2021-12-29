@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import styles from './modal.module.scss';
 import useBodyClass from 'src/hooks/use-body-class';
-import { ModalProps } from 'src/types/components/ui/molecules/modal';
+import { ModalProps } from 'types/components/ui/molecules/modal';
 
 const Modal: React.FC<ModalProps> = ({
   contentClassName,

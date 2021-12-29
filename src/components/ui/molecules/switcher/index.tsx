@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './switcher.module.scss';
 import cx from 'classnames';
-import { SwitcherProps } from 'src/types/components/ui/molecules/switcher';
+import { SwitcherProps } from 'types/components/ui/molecules/switcher';
 
 const Switcher: React.FC<SwitcherProps> = ({
   className,

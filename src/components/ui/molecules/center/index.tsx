@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './center.module.scss';
 import cx from 'classnames';
-import { CenterProps } from 'src/types/components/ui/molecules/center';
+import { CenterProps } from 'types/components/ui/molecules/center';
 
 const Center: React.FC<CenterProps> = ({
   className,

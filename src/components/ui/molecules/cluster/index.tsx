@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './cluster.module.scss';
 import cx from 'classnames';
-import { ClusterProps } from 'src/types/components/ui/molecules/cluster';
+import { ClusterProps } from 'types/components/ui/molecules/cluster';
 
 const Cluster: React.FC<ClusterProps> = ({ className, children, justify, align, gap }) => {
   return (

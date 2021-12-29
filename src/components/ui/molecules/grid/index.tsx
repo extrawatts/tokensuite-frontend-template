@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './grid.module.scss';
 import cx from 'classnames';
-import { GridProps } from 'src/types/components/ui/molecules/grid';
+import { GridProps } from 'types/components/ui/molecules/grid';
 /*
  *@INFO This component is highly customizable
  * minimum value and space can alter based on project

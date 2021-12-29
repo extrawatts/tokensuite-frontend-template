@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './with-sidebar.module.scss';
 import cx from 'classnames';
-import { WithSidebarProps } from 'src/types/components/ui/molecules/with-sidebar';
+import { WithSidebarProps } from 'types/components/ui/molecules/with-sidebar';
 
 const WithSidebar: React.FC<WithSidebarProps> = ({
   className,

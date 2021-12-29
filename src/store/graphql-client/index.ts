@@ -1,4 +1,4 @@
-import { GraphqlClientStore } from 'src/types/store/graphql-client';
+import { GraphqlClientStore } from 'types/store/graphql-client';
 import create, { GetState, SetState } from 'zustand';
 import graphqlClientActions from './actions';
 import state from './state';

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './hero.module.scss';
 import cx from 'classnames';
-import { HeroProps } from 'src/types/components/ui/molecules/hero';
+import { HeroProps } from 'types/components/ui/molecules/hero';
 
 const Hero: React.FC<HeroProps> = ({
   className,

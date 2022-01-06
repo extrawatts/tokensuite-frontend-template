@@ -1,5 +1,5 @@
 .container {
-  background: $modal-overlay-bg;
+  background: rgba(#000, .5);
   mix-blend-mode: normal;
   position: fixed;
   width: 100%;
@@ -20,7 +20,7 @@
   position: relative;
   padding: 2rem;
   overflow: hidden;
-  color: $white;
+  color: white;
   background-repeat: no-repeat;
   background-size: cover;
 }

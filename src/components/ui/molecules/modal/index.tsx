@@ -11,9 +11,8 @@ const Modal: React.FC<ModalProps> = ({
   children,
   headerClassName,
   closeButtonClassName,
-  isOpen,
 }) => {
-  useBodyClass(isOpen);
+  useBodyClass(true);
 
   const handleClickOverlay = (event: React.MouseEvent) => {
     const target = event.target as HTMLElement;

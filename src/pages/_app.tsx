@@ -3,6 +3,7 @@ import 'src/styles/global.scss';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import ModalsProvider from 'src/components/ui/organisms/modals';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -13,8 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
-      <ReactQueryDevtools />
+      <ModalsProvider>
+        <Component {...pageProps} />
+        <ReactQueryDevtools />
+      </ModalsProvider>
     </QueryClientProvider>
   );
 }

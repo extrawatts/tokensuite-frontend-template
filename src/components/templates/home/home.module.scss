@@ -3,6 +3,9 @@
     font-size: 20px;
     color: color(success-color);
   }
+  h1 {
+    color: color(success-color);
+  }
   @include breakpoint(xs) {
     font-size: 14px;
   }

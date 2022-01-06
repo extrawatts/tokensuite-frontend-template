@@ -15,3 +15,16 @@
 - After all operations are set run ```yarn graphql:codegen``` to generate hooks.
 - Everytime creating new operations please consider the example folder structure under ```src/graphql```.
 - Note that, client is a parameter of every request hook which we can get from ```src/store/graphql-client```.
+
+### When defining types
+- All types should go under ```types``` folder.
+- ```types``` should mimic ```src``` folder structure.
+- When defining Props for component it should have the following convention: ```ComponentNameProps```.
+- Every type or interface or enum etc... should start with a capital letter.
+
+### Modal usage
+- Modals are using global store.
+- Every modal should be defined under ```components/organisms/ui/modals```.
+- When creating new modal all required types should be added to modal store.
+- Please follow example modal.
+

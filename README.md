@@ -1,5 +1,7 @@
 ## Tokensuite Frontend Template for dApps
 
+[![Quality Gate Status](http://142.93.236.90:9000/api/project_badges/measure?project=frontend-template&metric=alert_status&token=8db259c84702bd057c59b16b233ea048c339ec1e)](http://142.93.236.90:9000/dashboard?id=frontend-template)
+
 **Please use yarn as a package manager.**
 ### Styling Rules
 

@@ -8,8 +8,6 @@ const HomePage: NextPage = () => {
   const { graphqlClient } = useGraphqlClientStore();
   const { data, isLoading } = usePostsQuery(graphqlClient);
   const { openModal } = useModalsStore();
-  console.log(data);
-  console.log(isLoading);
 
   return (
     <div>

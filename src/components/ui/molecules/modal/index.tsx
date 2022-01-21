@@ -3,7 +3,6 @@ import cx from 'classnames';
 import styles from './modal.module.scss';
 import useBodyClass from 'src/hooks/use-body-class';
 import { ModalProps } from 'types/components/ui/molecules/modal';
-import useModalsStore from 'src/store/modals';
 import { setTimeout } from 'timers';
 
 const Modal: React.FC<ModalProps> = ({
@@ -31,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   useEffect(() => {
-    let mountTimeout = setTimeout(() => {
+    const mountTimeout = setTimeout(() => {
       setIsMount(true);
     }, 300);
     return () => {

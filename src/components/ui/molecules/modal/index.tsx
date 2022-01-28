@@ -1,31 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
-import styles from './modal.module.scss';
 import useBodyClass from 'src/hooks/use-body-class';
+
 import { ModalProps } from 'types/components/ui/molecules/modal';
-import { setTimeout } from 'timers';
+
+import { useKeyPress } from 'src/hooks';
+import styles from './modal.module.scss';
 
 const Modal: React.FC<ModalProps> = ({
   contentClassName,
   className,
   onClose,
-  children,
   headerClassName,
   closeButtonClassName,
+  blur = false,
+  children,
 }) => {
   useBodyClass(true);
   const [isClosing, setIsClosing] = useState(false);
   const [isMount, setIsMount] = useState(false);
 
+  const clickEscape: boolean = useKeyPress('Escape');
+
+  const closeModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose && onClose();
+      setIsClosing(false);
+    }, 300);
+  };
+
   const handleClickOverlay = (event: React.MouseEvent) => {
     const target = event.target as HTMLElement;
     const parentContainer = target.closest('#modal-content');
     if (!parentContainer && onClose) {
-      setIsClosing(true);
-      setTimeout(() => {
-        onClose();
-        setIsClosing(false);
-      }, 600);
+      closeModal();
     }
   };
 
@@ -33,17 +42,18 @@ const Modal: React.FC<ModalProps> = ({
     const mountTimeout = setTimeout(() => {
       setIsMount(true);
     }, 300);
+
+    if (clickEscape && onClose) {
+      closeModal();
+    }
     return () => {
       clearTimeout(mountTimeout);
     };
-  }, []);
+  }, [clickEscape]);
 
   return (
     <div
-      className={cx(styles.container, className, {
-        [styles.isClosing]: isClosing,
-        [styles.isOpen]: !isMount,
-      })}
+      className={cx(styles.container, className, { [styles.blur]: blur })}
       onClick={handleClickOverlay}
       role="presentation"
     >

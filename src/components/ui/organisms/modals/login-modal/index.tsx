@@ -4,7 +4,7 @@ import { LoginModalProps } from 'types/components/ui/organisms/modals/login-moda
 
 const LoginModal: React.FC<LoginModalProps> = ({ onClose, loginData }) => {
   return (
-    <Modal onClose={onClose}>
+    <Modal onClose={onClose} blur>
       hey there {loginData?.name} {loginData?.myFavObj.name}
     </Modal>
   );

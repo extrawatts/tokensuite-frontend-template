@@ -1,5 +1,6 @@
 .container {
   background: rgba(#000, 0.5);
+
   mix-blend-mode: normal;
   position: fixed;
   width: 100%;
@@ -13,7 +14,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  transition: all 0.3s ease;
+}
+.blur {
+  backdrop-filter: saturate(180%) blur(20px);
 }
 
 .content {
@@ -30,15 +33,20 @@
   background: black;
   border-radius: 16px;
   opacity: 1;
-  transition: all 0.3s ease;
+  // transition: all 0.3s ease;
+  animation-fill-mode: forwards;
 }
 
 .isOpen {
-  opacity: 0;
+  animation-name: appearanceIn;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
 }
 .isClosing {
-  opacity: 0;
-  transition: all 0.6s ease;
+  animation-name: appearanceOut;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
 }
 
 .header {
@@ -64,3 +72,29 @@
 /* .closeButton path {
   fill: $white;
 } */
+
+@keyframes appearanceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
+    opacity: 0.75;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes appearanceOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

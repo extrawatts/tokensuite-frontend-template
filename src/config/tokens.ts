@@ -1,9 +1,9 @@
-import { Tokens, TokenType } from 'types/config';
+import { TTokens, TokenType } from 'types/config';
 
 /**
  * Project Token Addresses
  */
-const tokens: Tokens = {
+const tokens: TTokens = {
   /**
    * ERN Token
    */

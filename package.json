@@ -10,7 +10,8 @@
     "svgr": "npx @svgr/cli -d src/components/atoms/icons --ignore-existing --icon --typescript public/icons",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
-    "graphql:codegen": "graphql-codegen --config codegen.yml"
+    "graphql:codegen": "graphql-codegen --config codegen.yml",
+    "typechain": "typechain --target ethers-v5 --out-dir ./types/config/abis './src/config/abis/*.json'"
   },
   "dependencies": {
     "@graphql-codegen/typescript-react-query": "^3.2.2",

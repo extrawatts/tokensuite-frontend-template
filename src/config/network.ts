@@ -1,58 +1,37 @@
-import { Network } from 'types/config';
+import { hexValue } from 'ethers/lib/utils';
+import { TNetworkProviders, PROVIDERS } from 'types/config';
 
-/**
- * Network
- */
-const network: Network = {
-  /**
-   * Supported Chain Ids
-   */
-  supportedChainIds: ((process.env.NEXT_PUBLIC_SUPPORTED_CHAIN_IDS as string) || '')
-    .split(',')
-    .map((id) => parseInt(id)),
+export const supportedChainIds = ((process.env.NEXT_PUBLIC_SUPPORTED_CHAIN_IDS as string) || '')
+  .split(',')
+  .map((id) => parseInt(id));
 
-  /**
-   * Http Providers
-   */
-  providers: {
-    /**
-     * Ethereum Http Provider
-     */
-    ethereum: {
-      /**
-       * Ethereum Network Name
-       */
-      network: process.env.NEXT_PUBLIC_ETHEREUM_PROVIDER_NETWORK || 'homestead',
+export const networkProviders: TNetworkProviders = {
+  [PROVIDERS.ETHEREUM_PROVIDER]: {
+    name: process.env.NEXT_PUBLIC_ETHEREUM_PROVIDER_NETWORK || 'rinkeby',
 
-      /**
-       * Ethereum Network Key
-       */
-      key: process.env.NEXT_PUBLIC_ETHEREUM_PROVIDER_KEY || '',
+    key: process.env.NEXT_PUBLIC_ETHEREUM_PROVIDER_KEY || '',
 
-      chainId: parseInt(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '1'),
+    chainId: parseInt(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '1'),
 
-      chainIdHex: '0x' + parseInt(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '1').toString(16),
-    },
+    chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '4')),
+  },
 
-    /**
-     * Polygon Http Provider
-     */
-    polygon: {
-      /**
-       * Polygon Network Name
-       */
-      network: process.env.NEXT_PUBLIC_POLYGON_PROVIDER_NETWORK || 'maticmum',
+  [PROVIDERS.POLYGON_PROVIDER]: {
+    name: process.env.NEXT_PUBLIC_POLYGON_PROVIDER_NETWORK || 'maticmum',
 
-      /**
-       * Polygon Network Key
-       */
-      key: process.env.NEXT_PUBLIC_POLYGON_PROVIDER_KEY || '',
+    key: process.env.NEXT_PUBLIC_POLYGON_PROVIDER_KEY || '',
 
-      chainId: parseInt(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '137'),
+    chainId: parseInt(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '80001'),
 
-      chainIdHex: '0x' + parseInt(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '137').toString(16),
-    },
+    chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '80001')),
+  },
+  [PROVIDERS.BSC_PROVIDER]: {
+    name: process.env.NEXT_PUBLIC_BSC_PROVIDER_NETWORK || 'bsctestnet',
+
+    key: process.env.NEXT_PUBLIC_BSC_RPC_URL || '',
+
+    chainId: parseInt(process.env.NEXT_PUBLIC_BSC_CHAIN_ID || '97'),
+
+    chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_BSC_CHAIN_ID || '97')),
   },
 };
-
-export default network;

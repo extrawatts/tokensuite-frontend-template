@@ -1,11 +1,11 @@
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
-import { ConnectorNames } from 'types/config';
-import network from './network';
+import { CONNECTOR_NAMES } from 'types/config';
+import { supportedChainIds } from './network';
 
 // Injected Connector
 const injected = new InjectedConnector({
-  supportedChainIds: network.supportedChainIds,
+  supportedChainIds: supportedChainIds,
 });
 
 const walletConnect = new WalletConnectConnector({
@@ -17,20 +17,20 @@ const walletConnect = new WalletConnectConnector({
 });
 
 // Connectors Map
-export const connectors: { [connectorName in ConnectorNames]: any } = {
-  [ConnectorNames.Injected]: injected,
-  [ConnectorNames.WalletConnect]: walletConnect,
+export const connectors: { [connectorName in CONNECTOR_NAMES]: any } = {
+  [CONNECTOR_NAMES.Injected]: injected,
+  [CONNECTOR_NAMES.WalletConnect]: walletConnect,
 };
 
 export const connectorsByWallet = [
   {
     name: 'Metamask',
     icon: '/images/metamask-logo.png',
-    connectorId: ConnectorNames.Injected,
+    connectorId: CONNECTOR_NAMES.Injected,
   },
   {
     name: 'WalletConnect',
     icon: '/images/walletconnect-logo.png',
-    connectorId: ConnectorNames.WalletConnect,
+    connectorId: CONNECTOR_NAMES.WalletConnect,
   },
 ];

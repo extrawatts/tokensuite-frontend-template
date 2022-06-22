@@ -5,4 +5,5 @@ export interface ModalProps {
   onClose?: () => void;
   title?: string;
   headerClassName?: string;
+  blur?: boolean;
 }

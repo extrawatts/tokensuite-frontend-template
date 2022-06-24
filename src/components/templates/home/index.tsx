@@ -4,10 +4,11 @@ import cx from 'classnames';
 import { HomeProps } from 'types/components/ui/organisms/home';
 import WithSidebar from '../../ui/molecules/with-sidebar';
 import Switcher from '../../ui/molecules/switcher';
-import Box from '../../ui/molecules/box';
-import Hero from '../../ui/molecules/hero';
-import Center from '../../ui/molecules/center';
 import useModalsStore from 'src/store/modals';
+import Box from 'src/components/ui/atoms/box';
+import Flex from 'src/components/ui/atoms/flex';
+import Center from 'src/components/ui/atoms/center';
+import Stack from 'src/components/ui/atoms/stack';
 /* import Stack from '../../molecules/stack';
 import Center from '../../molecules/center'; */
 
@@ -20,18 +21,29 @@ const Home: React.FC<HomeProps> = ({ className }) => {
         <input className={styles.input} placeholder="hey" />
         <button className={styles.button}>asdfsda</button>
       </WithSidebar>
-      <Switcher limit="one" threshold="deviceMd" gap="gapLg">
-        <Box>sadlkgfhjasdg</Box>
-        <Box>sadlkgfhjasdg</Box>
-        <Box>sadlkgfhjasdg</Box>
-        <Box>sadlkgfhjasdg</Box>
-      </Switcher>
+      <Switcher limit="one" threshold="deviceMd" gap="gapLg"></Switcher>
       <button onClick={() => openModal('login')}>modal</button>
-      <Center centerText>
-        <Hero space="spaceMd">
-          <h1>TEst</h1>
-        </Hero>
-      </Center>
+
+      <Box>Testing box</Box>
+      <Box>Testing box</Box>
+      <Box>Testing box</Box>
+      <Box>Testing box</Box>
+
+      <Flex>
+        <Box>Testing flex</Box>
+        <Box>Testing flex</Box>
+        <Box>Testing flex</Box>
+        <Box>Testing flex</Box>
+      </Flex>
+
+      <Center>Testing center</Center>
+
+      <Stack direction="row">
+        <Box>Testing stack</Box>
+        <Box>Testing stack</Box>
+        <Box>Testing stack</Box>
+        <Box>Testing stack</Box>
+      </Stack>
     </div>
   );
 };

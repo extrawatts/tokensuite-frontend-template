@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './title.module.scss';
 import cx from 'classnames';
-import { TitleProps } from 'types/components/ui/atoms/title';
+import { TitleProps } from 'types';
 
-const Title: React.FC<TitleProps> = ({ className }) => {
-  return <div className={cx(styles.title, className)}></div>;
+const Title: React.FC<TitleProps> = ({ className, size, children }) => {
+  const Component = size;
+  return <Component className={cx(styles.title, styles[size], className)}>{children}</Component>;
 };
 
 export default Title;

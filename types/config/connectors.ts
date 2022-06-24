@@ -3,7 +3,6 @@ export enum CONNECTOR_NAMES {
   Injected = 'Injected',
   // Network = 'Network',
   WalletConnect = 'WalletConnect',
-  WalletLink = 'WalletLink',
   // Ledger = 'Ledger',
   // Trezor = 'Trezor',
   // Lattice = 'Lattice',

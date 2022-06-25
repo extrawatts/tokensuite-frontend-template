@@ -1,6 +1,10 @@
-"""Exposes a URL that specifies the behavior of this scalar."""
+"""
+Exposes a URL that specifies the behavior of this scalar.
+"""
 directive @specifiedBy(
-  """The URL that specifies the behavior of this scalar."""
+  """
+  The URL that specifies the behavior of this scalar.
+  """
   url: String!
 ) on SCALAR
 
@@ -19,15 +23,21 @@ type ActiveUserPayload {
 type AcuantGoDto implements AbstractDto {
   createdAt: Float!
 
-  """Personal data of the user"""
+  """
+  Personal data of the user
+  """
   data: String!
   deletedAt: DateTime!
   id: String!
 
-  """The kyc result (Manaul Review, Accepted, Rejected)"""
+  """
+  The kyc result (Manaul Review, Accepted, Rejected)
+  """
   state: String!
 
-  """Transaction id of the acuant go"""
+  """
+  Transaction id of the acuant go
+  """
   tid: String!
   updatedAt: Float!
 }
@@ -282,7 +292,9 @@ type Q2eLeadDto implements AbstractDto {
   deletedAt: DateTime!
   id: String!
 
-  """Lead id of the Q2E Benefit Application"""
+  """
+  Lead id of the Q2E Benefit Application
+  """
   leadId: Int!
   updatedAt: Float!
 }
@@ -296,7 +308,9 @@ type Query {
   getAdminList: [AdminDto!]
   getKYCHistory: [AcuantGoDto!]!
 
-  """Get log from uuid"""
+  """
+  Get log from uuid
+  """
   getLog(id: String!): LogsDto!
   getLogCollection(params: LogCollectionFilterDto!): LogsReturnDto
   getMailTemplateList: [MailTemplateReturnDto!]
@@ -448,4 +462,3 @@ type WalletReturn {
   message: String!
   success: Boolean!
 }
-

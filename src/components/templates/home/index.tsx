@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './home.module.scss';
 import cx from 'classnames';
 import { HomeProps } from 'types/components/ui/organisms/home';
-import WithSidebar from '../../ui/molecules/with-sidebar';
-import Switcher from '../../ui/molecules/switcher';
 import useModalsStore from 'src/store/modals';
 import Box from 'src/components/ui/atoms/box';
 import Flex from 'src/components/ui/atoms/flex';
@@ -17,11 +15,6 @@ const Home: React.FC<HomeProps> = ({ className }) => {
 
   return (
     <div className={cx(styles.home, className)}>
-      <WithSidebar contentMinPercentage="percent66" sideWidth="sm" side="right">
-        <input className={styles.input} placeholder="hey" />
-        <button className={styles.button}>asdfsda</button>
-      </WithSidebar>
-      <Switcher limit="one" threshold="deviceMd" gap="gapLg"></Switcher>
       <button onClick={() => openModal('login')}>modal</button>
 
       <Box>Testing box</Box>

@@ -10,7 +10,7 @@
     "svgr": "npx @svgr/cli -d src/components/atoms/icons --ignore-existing --icon --typescript public/icons",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
-    "graphql:codegen": "graphql-codegen --config codegen.yml",
+    "graphql:codegen": "npx get-graphql-schema https://dev-soccer-backend-ocyzd.ondigitalocean.app/graphql > schema.graphql && npx gqlg --schemaFilePath schema.graphql --destDirPath ./src/graphql --depthLimit 5 && graphql-codegen --config codegen.yml",
     "typechain": "typechain --target ethers-v5 --out-dir ./types/config/abis './src/config/abis/*.json'"
   },
   "dependencies": {

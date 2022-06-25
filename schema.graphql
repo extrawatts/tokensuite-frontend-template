@@ -1,0 +1,451 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+interface AbstractDto {
+  createdAt: Float!
+  deletedAt: DateTime!
+  id: String!
+  updatedAt: Float!
+}
+
+type ActiveUserPayload {
+  check: Boolean!
+  loginAsUser: ISignAuthResponse
+}
+
+type AcuantGoDto implements AbstractDto {
+  createdAt: Float!
+
+  """Personal data of the user"""
+  data: String!
+  deletedAt: DateTime!
+  id: String!
+
+  """The kyc result (Manaul Review, Accepted, Rejected)"""
+  state: String!
+
+  """Transaction id of the acuant go"""
+  tid: String!
+  updatedAt: Float!
+}
+
+input AddInvestorInputDto {
+  round: String!
+  tokenAmount: Float!
+  wallet: String!
+}
+
+type AdminDto implements AbstractDto {
+  createdAt: Float!
+  deletedAt: DateTime!
+  description: String!
+  emailAddress: String!
+  firstName: String!
+  id: String!
+  isActive: Boolean!
+  isDefaultPasswordUpdated: Boolean!
+  isDeleted: Boolean!
+  lastName: String!
+  phone: String!
+  role: Float!
+  status: Float!
+  updatedAt: Float!
+  walletAddress: String!
+}
+
+input AdminLoginDto {
+  emailAddress: String!
+  password: String!
+  verifyToken: String
+}
+
+input AdminTwoFactorDto {
+  code: Float!
+  emailAddress: String!
+}
+
+type AdminTwoFactorOutDto {
+  code: Float!
+}
+
+input AuthCodeRequest {
+  authCode: Float!
+  email: String!
+}
+
+input CreateMailTemplateDto {
+  body: String!
+  name: String!
+  subject: String!
+}
+
+input CreateOrderInputDto {
+  method: Float!
+  roundId: String!
+  tokenAmount: Float!
+  wallet: String!
+}
+
+type CreateOrderResponseDto {
+  ref: String!
+}
+
+input CreateRoundDto {
+  description: String!
+  order: Float!
+  pricePerToken: Float!
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type GenerateKYCUrlDto {
+  kycUrl: String!
+}
+
+type GeneratePaymentUrlDto {
+  paymentUrl: String!
+}
+
+type GetOrderResponseDto {
+  createdAt: Float!
+  currency: String!
+  method: Float!
+  price: String!
+  ref: String!
+  round: RoundResponseDto!
+  status: Float!
+  tokenAmount: Float!
+  wallet: String!
+}
+
+input IcoSummaryPayload {
+  funded: Float = 0
+}
+
+type IcoSummaryReturn {
+  funded: Float!
+  minTxAmount: Float!
+  softcap: Float!
+  target: Float!
+}
+
+input ISignAuthPayload {
+  email: String!
+  password: String!
+  verifyToken: String
+}
+
+type ISignAuthResponse {
+  accessToken: String!
+  expiresIn: Int!
+  id: String!
+  redirect: Boolean!
+  refreshToken: String!
+  signature: String!
+}
+
+type KYCStatusDto implements AbstractDto {
+  acuant: AcuantGoDto
+  createdAt: Float!
+  deletedAt: DateTime!
+  id: String!
+  status: String
+  type: String
+  updatedAt: Float!
+}
+
+type KYCSuccess {
+  success: Boolean!
+}
+
+input KYCTwoInputDto {
+  address: String!
+  birthDate: String!
+  city: String!
+  country: String!
+  firstName: String!
+  lastName: String!
+  phoneNumber: String!
+  phonePrefix: String!
+  state: String!
+  zipCode: String!
+}
+
+input ListMailTemplatesDto {
+  limit: Float!
+  offset: Float!
+}
+
+input LogCollectionFilterDto {
+  betweenDate: String!
+  context: String!
+  fulltext: String!
+  level: String!
+  limit: Float = 50
+  message: String!
+  name: String!
+  offset: Float = 0
+  parent: String!
+}
+
+type LoginAdminPayload {
+  accessToken: String!
+  admin: AdminDto!
+  refreshToken: String!
+}
+
+type LogsDto implements AbstractDto {
+  context: String!
+  createdAt: Float!
+  deletedAt: DateTime!
+  id: String!
+  level: String!
+  message: String!
+  name: String!
+  parent: String
+  updatedAt: Float!
+}
+
+type LogsReturnDto {
+  currentPage: Int!
+  logs: [LogsDto!]
+  total: Int!
+  totalPage: Int!
+}
+
+type MailTemplateListingDto {
+  currentPage: Float!
+  mailTemplates: [MailTemplateReturnDto!]!
+  totalPage: Float!
+}
+
+type MailTemplateReturnDto {
+  body: String
+  createdAt: Float!
+  name: String
+  subject: String
+  updatedAt: Float!
+}
+
+type Mutation {
+  KYCTwo(data: KYCTwoInputDto!): KYCSuccess!
+  activateUser(data: AuthCodeRequest!): ActiveUserPayload!
+  addInvestor(data: AddInvestorInputDto!): Boolean!
+  blockUser(email: String!, isBlock: Boolean!): SuccessPayload
+  changeEmail(email: String!, newEmail: String!): SuccessPayload!
+  changePassword(data: UserChangePasswordRequest!): SuccessPayload!
+  createAdmin(params: NewAdminDto!): AdminDto
+  createIcoSummary(data: IcoSummaryPayload!): IcoSummaryReturn!
+  createOrder(data: CreateOrderInputDto!): CreateOrderResponseDto!
+  createRound(data: CreateRoundDto!): RoundResponseDto!
+  createTemplate(data: CreateMailTemplateDto!): MailTemplateReturnDto!
+  deleteAdmin(email: String!): SuccessPayload!
+  deleteTemplate(data: TemplateNameDto!): MailTemplateReturnDto!
+  forgotPassword(data: String!): SuccessPayload!
+  generatePaymentUrl(ref: String!): GeneratePaymentUrlDto!
+  refreshToken(data: RefreshTokenInput!): RefreshTokenPayload!
+  register(data: UserRegisterRequest!): SuccessPayload!
+  resendTwoFactor(email: String!): SuccessPayload
+  resetPassword(data: UserResetPasswordRequest!): SuccessPayload!
+  updateAdmin(params: UpdateAdminInputDto!): SuccessPayload!
+  updateAdminPassword(params: NewPasswordDto!): AdminDto
+  updateTemplate(data: CreateMailTemplateDto!): MailTemplateReturnDto
+  userLogin(data: ISignAuthPayload!): ISignAuthResponse!
+  userLogout(refreshToken: String!): SuccessPayload!
+}
+
+input NewAdminDto {
+  creatorUser: String!
+  description: String!
+  emailAddress: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  role: String!
+}
+
+input NewPasswordDto {
+  id: String!
+  oldPassword: String!
+  password: String!
+}
+
+type Q2eLeadDto implements AbstractDto {
+  createdAt: Float!
+  deletedAt: DateTime!
+  id: String!
+
+  """Lead id of the Q2E Benefit Application"""
+  leadId: Int!
+  updatedAt: Float!
+}
+
+type Query {
+  adminLogin(params: AdminLoginDto!): LoginAdminPayload
+  checkWallet(data: WalletDto!): WalletReturn!
+  findTemplate(data: TemplateNameDto!): MailTemplateReturnDto!
+  generateKYCUrl: GenerateKYCUrlDto!
+  getAdmin: AdminDto!
+  getAdminList: [AdminDto!]
+  getKYCHistory: [AcuantGoDto!]!
+
+  """Get log from uuid"""
+  getLog(id: String!): LogsDto!
+  getLogCollection(params: LogCollectionFilterDto!): LogsReturnDto
+  getMailTemplateList: [MailTemplateReturnDto!]
+  getOrder(ref: String!): GetOrderResponseDto!
+  getOrderList(params: UserOrderFilterDto!): [UserDto!]
+  getOrders: [GetOrderResponseDto!]!
+  getUser: UserDto!
+  getUserById(id: String!): UserDto
+  getUserList(params: UserFilterDto!): [UserDto!]
+  icoSummary: IcoSummaryReturn!
+  isInvestorAdded(wallet: String!): Boolean!
+  isRegister(data: UserSignRequest!): SuccessPayload!
+  listTemplates(data: ListMailTemplatesDto!): MailTemplateListingDto!
+  roundList: [RoundResponseDto!]!
+  testVesting(data: TestArgs!): VestingResponseDto!
+  verifyTwoFactor(params: AdminTwoFactorDto!): AdminTwoFactorOutDto
+}
+
+input RefreshTokenInput {
+  refreshToken: String!
+}
+
+type RefreshTokenPayload {
+  accessToken: String!
+  admin: AdminDto!
+}
+
+type RoundResponseDto {
+  canJoin: Boolean!
+  description: String!
+  id: String!
+  order: Float!
+  pricePerToken: Float!
+  title: String!
+}
+
+type SuccessPayload {
+  check: Boolean!
+}
+
+input TemplateNameDto {
+  name: String!
+}
+
+input TestArgs {
+  amount: Float!
+  orderID: String!
+  wallet: String!
+}
+
+input UpdateAdminInputDto {
+  description: String!
+  emailAddress: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+}
+
+input UserChangePasswordRequest {
+  currentPassword: String!
+  email: String!
+  password: String!
+}
+
+type UserDetailDto implements AbstractDto {
+  address: String!
+  birthDay: String!
+  city: String!
+  country: String!
+  createdAt: Float!
+  deletedAt: DateTime!
+  firstName: String
+  id: String!
+  lastName: String
+  phone: String!
+  phonePrefix: String!
+  state: String!
+  updatedAt: Float!
+  zipCode: String!
+}
+
+type UserDto implements AbstractDto {
+  createdAt: Float!
+  deletedAt: DateTime!
+  detail: UserDetailDto
+  emailAddress: String!
+  id: String!
+  isActive: Boolean!
+  isBlocked: Boolean!
+  kyc: KYCStatusDto
+  lead: Q2eLeadDto
+  orders: [GetOrderResponseDto!]
+  pep: Boolean!
+  redirect: Boolean!
+  status: Float!
+  tokenAmount: Float
+  updatedAt: Float!
+  walletAddress: String!
+}
+
+input UserFilterDto {
+  country: String!
+  emailAddress: String!
+  firstName: String!
+  kycLevel: String!
+  kycStatus: String!
+  lastName: String!
+  pep: String!
+  status: String!
+}
+
+input UserOrderFilterDto {
+  betweenDate: String!
+  emailAddress: String!
+  fullName: String!
+  kycStatus: String!
+  orderStatus: String!
+  orderType: String!
+  wallet: String!
+}
+
+input UserRegisterRequest {
+  email: String!
+  password: String!
+  pep: Boolean!
+  verifyToken: String
+}
+
+input UserResetPasswordRequest {
+  email: String!
+  password: String!
+  token: String!
+}
+
+input UserSignRequest {
+  email: String!
+}
+
+type VestingResponseDto {
+  ref: String!
+  succeeded: Boolean!
+}
+
+input WalletDto {
+  wallet: String!
+}
+
+type WalletReturn {
+  message: String!
+  success: Boolean!
+}
+

@@ -1,5 +1,5 @@
 overwrite: true
-schema: 'https://fakeql.com/graphql/a7fceaabd695e4ea0e5a5e007c7234a3'
+schema: 'https://dev-soccer-backend-ocyzd.ondigitalocean.app/graphql'
 documents: 'src/graphql/**/*.gql'
 generates:
   src/graphql/generated/index.ts:

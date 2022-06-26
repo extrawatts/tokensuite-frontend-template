@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import ModalsProvider from 'src/components/ui/organisms/modals/modals-provider';
+import { ModalsProvider } from 'src/components/ui/organisms';
 import { ethers } from 'ethers';
 import { Web3ReactProvider } from '@web3-react/core';
 import { ToastContainer } from 'react-toastify';

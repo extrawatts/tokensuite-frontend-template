@@ -1,10 +1,11 @@
-import { PROCESS_TYPE, ProcessModalProps, LoginModalProps } from 'types';
+import { PROCESS_TYPE, ProcessModalProps, LoginModalProps, ConfirmationModalProps } from 'types';
 
-export type Modals = 'login' | 'signup' | 'connect-wallet' | 'process-modal';
+export type Modals = 'login' | 'signup' | 'connect-wallet' | 'process-modal' | 'confirmation-modal';
 
 export type ModalPropsStore = {
   loginData: LoginModalProps['loginData'];
   processData: ProcessModalProps<PROCESS_TYPE>['processData'];
+  confirmationData: ConfirmationModalProps['confirmationData'];
 };
 
 export interface ModalsStoreState {

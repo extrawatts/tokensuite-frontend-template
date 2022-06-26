@@ -28,6 +28,7 @@
 - When organising a theme first colors should be defined under ```src/styles/variables/_colors.scss```
 - Then it should be added as a variable to ```src/styles/variables/_themes.scss```
 - All the colors in the app should be used with color function as an example: ```color(primary-color)```. ```primary-color``` is derived from src/variables/_theme.scss.
+- To understand how to write variables and mixins or placeholder please checkout ```saas-frontend```.
 
 ### How to send request
 

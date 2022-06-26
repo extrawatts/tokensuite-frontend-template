@@ -27,6 +27,7 @@ const processStoreActions = (
   },
   executeProcesses: async (processes, processParams, step = 0) => {
     // const process = processes[step];
+    delete localStorage['process'];
 
     set((state) => {
       state.processes = processes;

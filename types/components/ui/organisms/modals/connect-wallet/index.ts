@@ -1,3 +1,3 @@
-import { ModalProps } from '../common';
+import { CommonModalProps } from '../common';
 
-export type ConnectWalletModalProps = ModalProps;
+export type ConnectWalletModalProps = CommonModalProps;

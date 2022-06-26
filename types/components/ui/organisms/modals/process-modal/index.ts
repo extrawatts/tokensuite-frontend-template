@@ -1,9 +1,14 @@
-import { ModalProps } from 'types';
-import { IProcess } from 'types/store/process';
+import { IFundLpParams, PROCESS_TYPE } from 'types';
 
-export interface ProcessModalProps extends ModalProps {
+export type IProcessParams = {
+  [PROCESS_TYPE.GENERATE_LP]: IFundLpParams;
+  [PROCESS_TYPE.TEST_PROCESS]: 'helloworld';
+};
+
+export interface ProcessModalProps<T extends PROCESS_TYPE> {
   processData?: {
-    processes: IProcess[];
+    type: PROCESS_TYPE;
     step: number;
+    params: IProcessParams[T];
   };
 }

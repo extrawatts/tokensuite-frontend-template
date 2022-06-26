@@ -14,6 +14,8 @@ export const networkProviders: TNetworkProviders = {
     chainId: parseInt(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '1'),
 
     chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_ETHEREUM_CHAIN_ID || '4')),
+
+    displayName: process.env.NEXT_PUBLIC_ETHEREUM_PROVIDER_NAME || '',
   },
 
   [PROVIDERS.POLYGON_PROVIDER]: {
@@ -24,6 +26,8 @@ export const networkProviders: TNetworkProviders = {
     chainId: parseInt(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '80001'),
 
     chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_POLYGON_CHAIN_ID || '80001')),
+
+    displayName: process.env.NEXT_PUBLIC_POLYGON_PROVIDER_NAME || '',
   },
   [PROVIDERS.BSC_PROVIDER]: {
     name: process.env.NEXT_PUBLIC_BSC_PROVIDER_NETWORK || 'bsctestnet',
@@ -33,5 +37,7 @@ export const networkProviders: TNetworkProviders = {
     chainId: parseInt(process.env.NEXT_PUBLIC_BSC_CHAIN_ID || '97'),
 
     chainIdHex: hexValue(Number(process.env.NEXT_PUBLIC_BSC_CHAIN_ID || '97')),
+
+    displayName: process.env.NEXT_PUBLIC_BSC_PROVIDER_NAME || '',
   },
 };

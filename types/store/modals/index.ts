@@ -1,18 +1,19 @@
-import { LoginModalProps } from 'types/components/ui/organisms/modals/login-modal';
+import { PROCESS_TYPE, ProcessModalProps, LoginModalProps } from 'types';
 
-export type Modals = 'login' | 'signup' | 'connect-wallet';
+export type Modals = 'login' | 'signup' | 'connect-wallet' | 'process-modal';
 
-export type ModalProps = {
+export type ModalPropsStore = {
   loginData: LoginModalProps['loginData'];
+  processData: ProcessModalProps<PROCESS_TYPE>['processData'];
 };
 
 export interface ModalsStoreState {
   modal?: Modals;
-  props?: Partial<ModalProps>;
+  props?: Partial<ModalPropsStore>;
 }
 
 export interface ModalsStoreActions {
-  openModal: (modal: Modals, props?: Partial<ModalProps>) => void;
+  openModal: (modal: Modals, props?: Partial<ModalPropsStore>) => void;
   closeModal: () => void;
 }
 

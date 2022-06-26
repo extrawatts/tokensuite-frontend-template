@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import 'src/styles/global.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import ModalsProvider from 'src/components/ui/organisms/modals';
+import ModalsProvider from 'src/components/ui/organisms/modals/modals-provider';
+import { ethers } from 'ethers';
+import { Web3ReactProvider } from '@web3-react/core';
+import { ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -12,13 +16,29 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const queryClient = new QueryClient();
 
+  const getLibrary = (provider: any): ethers.providers.Web3Provider =>
+    new ethers.providers.Web3Provider(provider);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <ModalsProvider>
-        <Component {...pageProps} />
-        <ReactQueryDevtools />
-      </ModalsProvider>
-    </QueryClientProvider>
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <QueryClientProvider client={queryClient}>
+        <ModalsProvider>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          <Component {...pageProps} />
+          <ReactQueryDevtools />
+        </ModalsProvider>
+      </QueryClientProvider>
+    </Web3ReactProvider>
   );
 }
 

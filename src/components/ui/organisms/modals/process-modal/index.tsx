@@ -1,55 +1,36 @@
-import React, { useEffect } from 'react';
-import Button from 'src/components/ui/atoms/button';
-import Title from 'src/components/ui/atoms/title';
-import Text from 'src/components/ui/atoms/text';
-import Modal from 'src/components/ui/molecules/modal';
+import React, { useEffect, useMemo } from 'react';
+import { Modal } from 'src/components/ui/molecules';
+import FundLpProcess from 'src/components/ui/molecules/processes/fund-lp-process';
 import useProcessStore from 'src/store/process';
+import { IFundLpParams, PROCESS_TYPE } from 'types';
 import { ProcessModalProps } from 'types/components/ui/organisms/modals/process-modal';
 
-const ProcessModal: React.FC<ProcessModalProps> = ({ processData }) => {
-  const step = processData?.step;
-  const { executeProcesses, processes, currentStep, logItem } = useProcessStore();
-
-  useEffect(() => {
-    if (processData?.processes) executeProcesses(processData.processes, step);
-  }, [processData]);
-
+const ProcessModal: React.FC<ProcessModalProps<PROCESS_TYPE>> = ({ processData }) => {
+  const { logItem } = useProcessStore();
   useEffect(() => {
     if (!logItem) return;
+    console.log(logItem);
 
     window.onbeforeunload = () => {
       localStorage['process'] = logItem;
       return 'You are leaving the page, process will be terminated';
     };
   }, [logItem]);
+  const currentProcess = useMemo(() => {
+    switch (processData?.type) {
+      case PROCESS_TYPE.GENERATE_LP: {
+        return (
+          <FundLpProcess step={processData?.step} params={processData?.params as IFundLpParams} />
+        );
+      }
+      default: {
+        return <></>;
+      }
+    }
+  }, [processData]);
 
-  return (
-    <Modal blur>
-      <div className="w-[500px] h-[500px] bg-white rounded-lg">
-        <Button
-          color="secondary"
-          size="lg"
-          onClick={() => {
-            executeProcesses(processes, currentStep);
-          }}
-        >
-          Retry
-        </Button>
-        {processes.map((process) => {
-          return (
-            <div key={process.step}>
-              <Title size="h4">{process.title}</Title>
-              <Text size="subtitle" color="primary">
-                {process.description}
-              </Text>
-              <div>{process.status}</div>
-              <div>{process.hash}</div>
-              <div>{process.errorMessage}</div>
-            </div>
-          );
-        })}
-      </div>
-    </Modal>
-  );
+  console.log(processData?.type);
+
+  return <Modal blur>{currentProcess}</Modal>;
 };
 export default ProcessModal;

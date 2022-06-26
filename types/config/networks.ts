@@ -5,14 +5,20 @@ export enum PROVIDERS {
   BSC_PROVIDER = 'BSC_PROVIDER',
 }
 
+export type TChain =
+  | PROVIDERS.BSC_PROVIDER
+  | PROVIDERS.ETHEREUM_PROVIDER
+  | PROVIDERS.POLYGON_PROVIDER;
+
 // Network Provider type
 export type TNetworkProvider = {
   name: string;
   key: string;
   chainId: number;
   chainIdHex: string;
+  displayName: string;
 };
 
 export type TNetworkProviders = {
-  [key in Exclude<PROVIDERS, PROVIDERS.SIGNER>]: TNetworkProvider;
+  [key in TChain]: TNetworkProvider;
 };

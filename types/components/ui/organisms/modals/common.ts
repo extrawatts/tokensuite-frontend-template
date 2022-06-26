@@ -1,5 +1,5 @@
 import { ModalsStoreActions } from 'types/store/modals';
 
-export interface ModalProps {
+export interface CommonModalProps {
   onClose: ModalsStoreActions['closeModal'];
 }

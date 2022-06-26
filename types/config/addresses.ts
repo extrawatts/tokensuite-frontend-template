@@ -1,13 +1,9 @@
-export enum CHAINS {
-  ETHEREUM,
-  BSC,
-  POLYGON,
-}
+import { TChain } from './networks';
 
 export enum ADDRESSES {
   GENERATE_LP_STAKING,
 }
 
 export type IAddress = {
-  [key in CHAINS]: string;
+  [key in TChain]: string;
 };

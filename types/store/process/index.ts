@@ -1,3 +1,5 @@
+import { IProcessParams } from 'types/components';
+
 export enum PROCESS_STATUSES {
   IDLE,
   IN_PROGRESS,
@@ -7,6 +9,7 @@ export enum PROCESS_STATUSES {
 
 export enum PROCESS_TYPE {
   GENERATE_LP,
+  TEST_PROCESS,
 }
 
 export interface IProcess {
@@ -28,7 +31,11 @@ export interface ProcessStoreState {
 
 export interface ProcessStoreActions {
   saveLogItem: (logItem: string) => void;
-  executeProcesses: (processes: IProcess[], step?: number) => void;
+  executeProcesses: <T extends PROCESS_TYPE>(
+    processes: IProcess[],
+    processParams: IProcessParams[T],
+    step?: number
+  ) => void;
   setProcesses: (processes: IProcess[]) => void;
   setProcessErrorMessage: (index: number, message: string) => void;
   setProcessHash: (index: number, hash: string) => void;

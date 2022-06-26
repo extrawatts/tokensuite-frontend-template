@@ -1,1 +1,3 @@
-export { default as LoginModal } from './modals/login-modal/index';
+export * from './modals';
+export * from './header';
+export * from './footer';

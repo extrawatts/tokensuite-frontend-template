@@ -5,6 +5,7 @@ export { default as Checkbox } from './checkbox';
 export { default as Flex } from './flex';
 export { default as Input } from './input';
 export { default as Label } from './label';
+export { default as Radio } from './radio';
 export { default as Spinner } from './spinner';
 export { default as Stack } from './stack';
 export { default as Switch } from './switch';

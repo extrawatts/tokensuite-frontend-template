@@ -1,0 +1,57 @@
+.radioField {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  .label {
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: black;
+    user-select: none;
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .radioWrapper {
+    position: relative;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .radio {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .ball {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+  }
+  .radioChecked {
+    background-color: black;
+  }
+  .checkmarkIcon {
+    position: absolute;
+    user-select: none;
+  }
+  label {
+    z-index: 2;
+  }
+}

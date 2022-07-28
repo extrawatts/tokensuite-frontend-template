@@ -1,0 +1,45 @@
+.container {
+  position: relative;
+
+  .error {
+    border: 1px solid #ea3636;
+    &:focus {
+      border: 1px solid #ea3636;
+    }
+  }
+  input {
+    width: 100%;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 16px 20px;
+  }
+  label {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  input:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+  input:focus::placeholder {
+  }
+  input:focus + label {
+  }
+  input::placeholder {
+  }
+  input:not(:placeholder-shown) + label {
+  }
+
+  .prefix {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  .eyeIcon {
+    cursor: pointer;
+  }
+}

@@ -1,20 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-// import Input from 'src/components/ui/atoms/input';
 
-import Input from 'src/components/ui/atoms/input';
-// import { Button } from './Button';
+import Component from 'src/components/ui/atoms/input';
 
 export default {
-  title: 'Example/Input',
-  component: Input,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Input>;
+  title: 'UI/Atoms/Input',
+  component: Component,
+  argTypes: {},
+} as ComponentMeta<typeof Component>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Component> = (args) => <Component {...args} />;
 
-export const Primary = Template.bind({});
+export const Input = Template.bind({});
 
-Primary.args = {};
+Input.args = {};

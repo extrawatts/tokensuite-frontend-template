@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'src/styles/global.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
@@ -12,6 +12,10 @@ import { ThemeProvider } from 'src/hooks/use-theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'default');
+  }, []);
 
   const getLibrary = (provider: any): ethers.providers.Web3Provider =>
     new ethers.providers.Web3Provider(provider);

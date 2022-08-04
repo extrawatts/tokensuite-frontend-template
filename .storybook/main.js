@@ -1,26 +1,32 @@
 const path = require('path');
 
-console.log(path.join(__dirname, '..', '/src/styles'));
-console.log(path.resolve(__dirname, '../next.config.js'));
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    'storybook-addon-next',
     {
-      name: 'storybook-addon-next',
+      name: '@storybook/preset-scss',
       options: {
-        nextConfigPath: path.resolve(__dirname, '../next.config.js'),
+        esModule: true,
+        sassLoaderOptions: {
+          additionalData: (content) => {
+            // paths are relative to root dir in this case
+            return (
+              `
+              @import "src/styles/variables/index.scss";
+              @import "src/styles/mixins/index.scss";
+            ` + content
+            );
+          },
+        },
       },
     },
   ],
   framework: '@storybook/react',
   core: {
-    builder: '@storybook/builder-webpack5',
+    builder: 'webpack5',
   },
-  // sassOptions: {
-  //   includePaths: [path.join(__dirname, '..', '/src/styles')],
-  //   prependData: `@import "src/styles/variables"; @import "src/styles/mixins";`,
-  // },
 };

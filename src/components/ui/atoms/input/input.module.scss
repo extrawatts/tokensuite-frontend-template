@@ -13,7 +13,9 @@
     border: 1px solid color(primary-item-color);
     border-radius: 5px;
     padding: 16px 20px;
-    color: color(error-color);
+    // color: color(error-color);
+
+    color: $blue;
   }
   label {
     overflow: hidden;

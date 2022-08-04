@@ -1,6 +1,7 @@
 const withPlugins = require('next-compose-plugins');
 const path = require('path');
 
+
 module.exports = withPlugins([], {
   reactStrictMode: true,
   sassOptions: {

@@ -6,6 +6,7 @@ import Home from 'src/components/templates/home';
 import useModalsStore from 'src/store/modals';
 import { Button } from 'src/components/ui/atoms';
 import { PROCESS_TYPE, PROVIDERS, TChain } from 'types';
+import HomePageComponent from 'src/components/ui/atoms/test';
 
 const LP_STAKING_CONTRACT = '0xC70E50B66F22894000129C5DECfbc645645e2B42';
 const REWARD_TOKEN_CONTRACT = '0x9fe9de8bbc10a1c6ed0c13dae8171aa88193419e';
@@ -35,6 +36,7 @@ const HomePage: NextPage = () => {
       >
         Start Process
       </Button>
+      <HomePageComponent />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const SvgCheckmarkIcon = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="m1.394 3.747 4.488 4.55 6.324-7.154"
-      stroke="#fff"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

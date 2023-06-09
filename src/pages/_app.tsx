@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import 'src/styles/global.scss';
+import 'src/styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';

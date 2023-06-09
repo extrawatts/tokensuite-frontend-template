@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Title, Text } from 'src/components/ui/atoms';
 import useProcessStore from 'src/store/process';
 import { IProcessParams, PROCESS_TYPE } from 'types';
 interface ProcessContentProps<T extends PROCESS_TYPE> {
@@ -10,22 +9,19 @@ const ProcessContent: React.FC<ProcessContentProps<PROCESS_TYPE>> = ({ params })
 
   return (
     <>
-      <Button
+      <button
         color="secondary"
-        size="lg"
         onClick={() => {
           executeProcesses(processes, params, currentStep);
         }}
       >
         Retry
-      </Button>
+      </button>
       {processes.map((process) => {
         return (
           <div key={process.step}>
-            <Title size="h4">{process.title}</Title>
-            <Text size="subtitle" color="primary">
-              {process.description}
-            </Text>
+            {process.title}
+            {process.description}
             <div>{process.status}</div>
             <div>{process.hash}</div>
             <div>{process.errorMessage}</div>

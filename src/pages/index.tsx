@@ -4,7 +4,6 @@ import Home from 'src/components/templates/home';
 // import { usePostsQuery } from 'src/graphql/generated';
 // import useGraphqlClientStore from 'src/store/graphql-client';
 import useModalsStore from 'src/store/modals';
-import { Button } from 'src/components/ui/atoms';
 import { PROCESS_TYPE, PROVIDERS, TChain } from 'types';
 
 const LP_STAKING_CONTRACT = '0xC70E50B66F22894000129C5DECfbc645645e2B42';
@@ -24,9 +23,8 @@ const HomePage: NextPage = () => {
   return (
     <div>
       <Home />
-      <Button
+      <button
         color="secondary"
-        size="lg"
         onClick={() => {
           openModal('process-modal', {
             processData: { type: PROCESS_TYPE.GENERATE_LP, step: 0, params },
@@ -34,7 +32,11 @@ const HomePage: NextPage = () => {
         }}
       >
         Start Process
-      </Button>
+      </button>
+
+      <h1 className="text-3xl font-bold underline text-teal-500 decoration-sky-500">
+        Tailwind work
+      </h1>
     </div>
   );
 };

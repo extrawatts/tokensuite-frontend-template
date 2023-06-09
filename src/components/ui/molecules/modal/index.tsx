@@ -5,7 +5,6 @@ import useBodyClass from 'src/hooks/use-body-class';
 import { ModalProps } from 'types/components/ui/molecules/modal';
 
 import { useKeyPress } from 'src/hooks';
-import styles from './modal.module.scss';
 
 const Modal: React.FC<ModalProps> = ({
   contentClassName,
@@ -52,21 +51,11 @@ const Modal: React.FC<ModalProps> = ({
   }, [clickEscape]);
 
   return (
-    <div
-      className={cx(styles.container, className, { [styles.blur]: blur })}
-      onClick={handleClickOverlay}
-      role="presentation"
-    >
-      <div
-        id="modal-content"
-        className={cx(styles.content, contentClassName, {
-          [styles.isClosing]: isClosing,
-          [styles.isOpen]: !isMount,
-        })}
-      >
-        <div className={cx(styles.header, headerClassName)}>
+    <div className={cx(className)} onClick={handleClickOverlay} role="presentation">
+      <div id="modal-content" className={cx(contentClassName, {})}>
+        <div className={cx(headerClassName)}>
           {onClose && (
-            <a className={cx(styles.closeButton, closeButtonClassName)} onClick={() => onClose()}>
+            <a className={cx(closeButtonClassName)} onClick={() => onClose()}>
               X
             </a>
           )}

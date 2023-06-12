@@ -72,5 +72,6 @@
         "eslint"
       ]
     }
-  }
+  },
+  "packageManager": "yarn@2.4.1"
 }

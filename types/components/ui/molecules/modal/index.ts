@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface ModalProps {
   contentClassName?: string;
   className?: string;
@@ -6,4 +8,5 @@ export interface ModalProps {
   title?: string;
   headerClassName?: string;
   blur?: boolean;
+  children?: React.ReactNode;
 }
